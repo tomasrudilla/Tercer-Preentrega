@@ -1,0 +1,44 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+  Pagina de Pacientes
+{% endblock titulo %}
+
+{% block contenido %}
+   <h1>  Pacientes </h1>
+
+   <h1> {{ titulo|upper }} {% now " d / m /  Y " %} </h1>
+
+   <h4> Cantidad de Pacientes en la tabla {{pacientes|length}}</h4>
+
+   <table class="table table-striped">
+      <thead>
+           <tr>
+               <th>Id</th>
+               <th> Nombre del Paciente</th>
+               <th> Dni </th>
+               <th> Apellido </th>
+           </tr>
+      </thead>
+      <tbody>
+   
+   {% for c in pacientes  %}
+  
+   <tr>
+       <td> {{ c.id }} </td>
+       <td> {{ c.nombre }} </td>
+       <td> {{ c.dni }} </td>
+       <td> {{ c.apellido }} </td>
+   </tr>
+
+   {% endfor %}
+  </tbody>   
+  </table>
+
+
+  
+   
+   
+
+{% endblock contenido %}
